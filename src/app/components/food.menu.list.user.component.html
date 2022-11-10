@@ -1,0 +1,155 @@
+<div class="container">
+      <mat-stepper #allMeals (selectionChange)="overallSelection()" #stepper>  <!-- orientation="vertical" (selectionChange)="overallSelection()" -->
+        <!-- <mat-step [stepControl]="form">
+            <form [formGroup]="form">
+                <ng-template matStepLabel>Monday</ng-template>
+                <div *ngFor="let meal of meals; let i=index" class="divider-separate">
+                <mat-label>{{meal}}</mat-label>
+               
+                    <mat-checkbox formControlName="monday_breakfast" class="mat-checkbox-inner-container"></mat-checkbox>
+
+                <mat-divider *ngIf="i < 2"></mat-divider>
+                </div>
+                <div>
+                <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step> -->
+
+        <mat-step >
+              <ng-template matStepLabel>Monday</ng-template>
+              <mat-selection-list [disabled]="disableAll" #mealListM (selectionChange)="selectionChangedM(mealListM.selectedOptions.selected)" [(ngModel)]="preselected"> <!--(selectionChange)="selectionChangedM(mealListM.selectedOptions.selected)"-->
+                
+                <div *ngFor="let meal of meals; let i = index; " >
+                    <mat-list-option  *ngFor="let menu of mealMenu[i]" [value]="mealMenuId[i]">
+                        <div mat-line style="font-size: 17px; margin-bottom: 7px;">
+                          {{meal}}
+                        </div>
+     
+                        <div mat-line >
+                            <div mat-line>Main: {{menu.Main}}</div>
+                            <div mat-line>Drinks: {{menu.Drinks}}</div>
+                            <div mat-line *ngIf="menu.Dessert">Dessert: {{menu.Dessert}}</div>
+                            <div mat-line *ngIf="menu.Remarks">Remarks: {{menu.Remarks}}</div>
+                      </div>
+                      <mat-divider *ngIf="i < 2"></mat-divider>
+                    </mat-list-option>
+                </div>
+
+              </mat-selection-list>
+              <div class="next-button">
+                <button mat-stroked-button matStepperNext>Next</button>
+              </div>
+          </mat-step>
+
+          <mat-step >
+              <ng-template matStepLabel>Tuesday</ng-template>
+              <mat-selection-list [disabled]="disableAll" #mealListTu (selectionChange)="selectionChangedTu(mealListTu.selectedOptions.selected)" [(ngModel)]="preselected">
+                <div *ngFor="let meal of meals; let i = index; " >
+                    <mat-list-option  *ngFor="let menu of mealMenu[i+3]" [value]="mealMenuId[i+3]">
+                        <div mat-line style="font-size: 17px; margin-bottom: 7px;">
+                          {{meal}}
+                        </div>
+     
+                        <div mat-line >
+                            <div mat-line>Main: {{menu.Main}}</div>
+                            <div mat-line>Drinks: {{menu.Drinks}}</div>
+                            <div mat-line *ngIf="menu.Dessert">Dessert: {{menu.Dessert}}</div>
+                            <div mat-line *ngIf="menu.Remarks">Remarks: {{menu.Remarks}}</div>
+                      </div>
+                      <mat-divider *ngIf="i < 2"></mat-divider>
+                    </mat-list-option>
+                    </div>
+
+          </mat-selection-list>
+          <div class="next-button">
+            <button mat-stroked-button matStepperNext>Next</button>
+          </div>
+          </mat-step>
+
+          <mat-step  >
+              <ng-template matStepLabel>Wednesday</ng-template>
+              <mat-selection-list [disabled]="disableAll" #mealListW (selectionChange)="selectionChangedW(mealListW.selectedOptions.selected)" [(ngModel)]="preselected">
+                <div *ngFor="let meal of meals; let i = index; " >
+                    <mat-list-option  *ngFor="let menu of mealMenu[i+6]" [value]="mealMenuId[i+6]">
+                        <div mat-line style="font-size: 17px; margin-bottom: 7px;">
+                          {{meal}}
+                        </div>
+     
+                        <div mat-line >
+                            <div mat-line>Main: {{menu.Main}}</div>
+                            <div mat-line>Drinks: {{menu.Drinks}}</div>
+                            <div mat-line *ngIf="menu.Dessert">Dessert: {{menu.Dessert}}</div>
+                            <div mat-line *ngIf="menu.Remarks">Remarks: {{menu.Remarks}}</div>
+                      </div>
+                      <mat-divider *ngIf="i < 2"></mat-divider>
+                    </mat-list-option>
+                    </div>
+              </mat-selection-list>
+              <div class="next-button">
+                <button mat-stroked-button matStepperNext>Next</button>
+              </div>
+          </mat-step>
+
+          <mat-step  >
+              <ng-template matStepLabel>Thursday</ng-template>
+              <mat-selection-list [disabled]="disableAll" #mealListTh (selectionChange)="selectionChangedTh(mealListTh.selectedOptions.selected)" [(ngModel)]="preselected">
+                <div *ngFor="let meal of meals; let i = index; " >
+                    <mat-list-option  *ngFor="let menu of mealMenu[i+9]" [value]="mealMenuId[i+9]">
+                        <div mat-line style="font-size: 17px; margin-bottom: 7px;">
+                          {{meal}}
+                        </div>
+     
+                        <div mat-line >
+                            <div mat-line>Main: {{menu.Main}}</div>
+                            <div mat-line>Drinks: {{menu.Drinks}}</div>
+                            <div mat-line *ngIf="menu.Dessert">Dessert: {{menu.Dessert}}</div>
+                            <div mat-line *ngIf="menu.Remarks">Remarks: {{menu.Remarks}}</div>
+                      </div>
+                      <mat-divider *ngIf="i < 2"></mat-divider>
+                    </mat-list-option>
+                    </div>
+              </mat-selection-list>
+              <div class="next-button">
+                <button mat-stroked-button matStepperNext>Next</button>
+              </div>
+          </mat-step>
+
+          <mat-step >
+              <ng-template matStepLabel>Friday</ng-template>
+              <mat-selection-list [disabled]="disableAll" #mealListF (selectionChange)="selectionChangedF(mealListF.selectedOptions.selected)" [(ngModel)]="preselected">
+                <div *ngFor="let meal of meals; let i = index; " >
+                    <mat-list-option  *ngFor="let menu of mealMenu[i+12]" [value]="mealMenuId[i+12]">
+                        <div mat-line style="font-size: 17px; margin-bottom: 7px;">
+                          {{meal}}
+                        </div>
+     
+                        <div mat-line >
+                            <div mat-line>Main: {{menu.Main}}</div>
+                            <div mat-line>Drinks: {{menu.Drinks}}</div>
+                            <div mat-line *ngIf="menu.Dessert">Dessert: {{menu.Dessert}}</div>
+                            <div mat-line *ngIf="menu.Remarks">Remarks: {{menu.Remarks}}</div>
+                      </div>
+                      <mat-divider *ngIf="i < 2"></mat-divider>
+                    </mat-list-option>
+                    </div>
+              </mat-selection-list>
+
+              <div class="next-button">
+                <button mat-stroked-button matStepperNext (click)="processForm()">Next</button>
+              </div>
+          </mat-step>
+        
+        <mat-step>
+          <ng-template matStepLabel (click)="processForm()">Confirm Selection</ng-template>
+          <p>These are your selected meal options:</p>
+          <ul *ngFor="let t of uniqueMealDay">
+            <li>{{t}}</li>
+          </ul>
+          <div>
+            <button mat-stroked-button matStepperPrevious class="submit-back-buttons">Back</button>
+            <button mat-stroked-button (click)="submitMealOptions()" [disabled]="disableAll">Submit</button>
+          </div>
+        </mat-step>
+      </mat-stepper>      
+</div>

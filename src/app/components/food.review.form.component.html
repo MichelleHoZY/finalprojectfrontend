@@ -1,0 +1,53 @@
+<div class="container">
+    <mat-card>
+        <form [formGroup]="form" (ngSubmit)="processForm()">
+            <div class="container">
+                <h2>Leave a review</h2>
+                <mat-divider class="divider"></mat-divider>
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Rating: </mat-label>
+                    <input type="text" matInput placeholder="Rating for lunch" formControlName="rating">
+                </mat-form-field> -->
+    
+                <div class="example-label-container" [class]="vertical ? 'example-label-vertical' : 'example-label-horizontal'">
+                    <label id="example-name-label" class="example-name-label">Rating: </label>
+                    <label class="example-value-label">{{value}}</label>
+                  </div>
+                  <mat-slider
+                      class="example-margin"
+                      [invert]="invert"
+                      [max]="max"
+                      [min]="min"
+                      [step]="step"
+                      [thumbLabel]="thumbLabel"
+                      [tickInterval]="getSliderTickInterval()"
+                      [vertical]="vertical"
+                      (ngModelChange)="ratingOnChange($event)"
+                      aria-labelledby="example-name-label"
+                      formControlName="rating">
+                  </mat-slider>
+                  <mat-hint>Max rating: 10</mat-hint>
+    
+                  <!-- <star-rating [starType]="'svg'" [rating]="2.63"></star-rating> -->
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>Review</mat-label>
+                    <input type="text" matInput placeholder="Leave your review" formControlName="caption">
+                </mat-form-field>
+                
+                <input type="file" formControlName="pic" (change)="onChange($event)">
+                <br>
+                <button type="submit" class="button" mat-stroked-button [disabled]="form.invalid">Save and go to next day</button>
+                <button type="button" class="button" mat-stroked-button (click)="exit()" [disabled]="form.invalid">Save and exit</button>
+            </div>
+        </form>
+    </mat-card>
+   
+</div>
+
+<!-- <mat-form-field>
+    <ngx-mat-file-input formControlName="pic" [multiple]="multiple" [accept]="accept" #toUpload (change)="onChange($event)">
+    </ngx-mat-file-input>
+ </mat-form-field> -->
+
+ <!--(ngModelChange)="onChange($event)-->

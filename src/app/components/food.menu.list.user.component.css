@@ -1,0 +1,21 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+  .next-button {
+    margin-top: 15px;
+  }
+  .submit-back-buttons {
+    margin-right: 15px;
+  }
+  .container {
+    /* padding: 50px; */
+    margin: 30px;
+}
+
+
+  

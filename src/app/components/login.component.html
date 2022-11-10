@@ -1,0 +1,23 @@
+<div class="outer-container">
+    <div class="container">
+        <!-- <div [style.background-image]="'url(https://www.iss.nus.edu.sg/images/default-source/default-album/our-story.jpg?sfvrsn=c558a35f_0)'"></div> -->
+            <form [formGroup]="form" (ngSubmit)="login()">
+            <mat-form-field>
+                <mat-label>Email:</mat-label>
+                <input type="text" matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password:</mat-label>
+                <input type="text" matInput formControlName="password">
+            </mat-form-field>
+            <mat-hint *ngIf="respMsg.length > 0">{{respMsg}}</mat-hint>
+            <br>
+            <button mat-stroked-button type="submit" style="margin-right: 10px;">Login</button>
+            <button mat-stroked-button type="button" (click)="createAccount()">Create account</button>
+        </form>
+        <br>
+        <div class="small">
+            *Not affiliated with NUS ISS. This is purely for a student project.
+        </div>
+    </div>
+</div>

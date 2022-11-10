@@ -1,0 +1,32 @@
+<div class="container">
+
+  
+  <div >
+    <mat-form-field appearance="standard">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search for reviews" #input>
+    </mat-form-field>
+    <mat-selection-list #mealListM  *ngFor="let meal of data; let i = index; let row of obs | async">            
+    <mat-list-option [value]="meal.Id" (click)="openDialog(meal.Id)" > <!--[disabled]="checkDisable(meal.Id)"-->
+        <div mat-line style="font-size: 17px;">
+          {{meal.Date}}: {{meal.Time}}
+          <button mat-icon-button style="float: right;" matTooltip="Leave a review">
+            <mat-icon [color]="checkReview(meal.Id)">edit</mat-icon>
+          </button>
+        </div>
+
+          <div mat-line >
+              <div mat-line>Main: {{meal.Main}}</div>
+              <div mat-line>Drinks: {{meal.Drinks}}</div>
+              <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+              <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+        </div>
+        <mat-divider *ngIf="i < itemNo" ></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+    </div>
+    <!-- <mat-paginator></mat-paginator> -->
+    <mat-paginator [length]="length" [pageSize]="3" [pageIndex]="0" [pageSizeOptions]="[3, 6, 9, 12, 15]" aria-label="Select page"></mat-paginator>
+</div>
+
+  

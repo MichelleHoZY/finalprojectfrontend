@@ -1,0 +1,41 @@
+<mat-toolbar class="apart">
+    <span *ngIf="id==0 || id== null">ISS Meal Planner</span>
+    <mat-icon (click)="toggleSidebar()" *ngIf="id!=0  && id!= null">menu</mat-icon>
+    <span class="font-change" *ngIf="id!=0 && id!= null">Menu</span>
+    <span class="example-spacer"></span>
+    <span class="font-change"><button type="button" mat-flat-button (click)="logout()" style="background-color: transparent;" *ngIf="id!=0 && id!= null">Log out</button></span>
+</mat-toolbar>
+
+<mat-drawer-container autosize >
+
+    <mat-drawer #myDrawer >
+      <mat-list>
+        <mat-list-item [routerLink]="['/home']" (click)="myDrawer.toggle()" class="item-size">
+          Home
+        </mat-list-item>
+        <mat-list-item *ngIf="id==1" [routerLink]="['/setMenu']" (click)="myDrawer.toggle()" class="item-size">
+          Set Menu
+        </mat-list-item>
+        <mat-list-item *ngIf="id==1" [routerLink]="['/menuList']" (click)="myDrawer.toggle()" class="item-size">
+          Menu List
+        </mat-list-item>
+        <mat-list-item *ngIf="id!=1 && id!=0" [routerLink]="['/menu']" (click)="myDrawer.toggle()" class="item-size">
+          Meals
+      </mat-list-item>
+        <mat-list-item *ngIf="id!=1 && id!=0" [routerLink]="['/meals']" (click)="myDrawer.toggle()" class="item-size">
+          My Meals
+        </mat-list-item>
+        <mat-list-item *ngIf="id!=0" [routerLink]="['/nutrition']" (click)="myDrawer.toggle()" class="item-size">
+          Nutrition
+      </mat-list-item>
+      <mat-list-item *ngIf="id==1" [routerLink]="['/statistics']" (click)="myDrawer.toggle()" class="item-size">
+        Statistics
+    </mat-list-item>
+      </mat-list>
+    </mat-drawer>
+  
+    <div class="full-height">
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>

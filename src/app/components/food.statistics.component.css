@@ -1,0 +1,60 @@
+.container {
+    /* padding: 50px; */
+    margin: 30px;
+}
+.left-side {
+    width: 50%;
+    float: left;
+    margin-right: 10px;
+}
+.right-side {
+    margin-left: 10px;
+    width: 50%;
+    float: right;
+}
+.example-card {
+    max-width: 400px;
+  }
+::ng-deep .mat-line{
+    word-wrap: break-word !important;
+    white-space: pre-wrap !important;
+  }
+.overall-button {
+    margin-top: 15px;
+}
+.graphs {
+    width: 100%;
+    height: calc(100% - 30px);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+table {
+    width: 100%;
+}
+
+/* .example-small-box, .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  } */
+  
+  .example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 92%; */
+  }

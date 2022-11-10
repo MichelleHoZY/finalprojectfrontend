@@ -1,0 +1,41 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="createAccount()">
+        <mat-form-field>
+            <mat-label>Email:</mat-label>
+            <input type="text" matInput formControlName="username" placeholder="Enter your email"> <!--(ngModelChange)="loginIdCheck($event)"-->
+            <mat-hint>{{idAvailable}}</mat-hint>
+        </mat-form-field>
+        <button type="button" mat-stroked-button (click)="checkIdAvailability()">Check if email is available</button>
+        <mat-form-field>
+            <mat-label>Name:</mat-label>
+            <input type="text" matInput formControlName="user_name" placeholder="Enter your full name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password:</mat-label>
+            <input type="text" matInput formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Vegetarian:</mat-label>
+            <mat-select formControlName="vegetarian">
+                <mat-option [value]="false">No</mat-option>
+                <mat-option [value]="true">Yes</mat-option>
+              </mat-select>
+        </mat-form-field>
+        <div class="date-field">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your course length</mat-label>
+                <mat-date-range-input [rangePicker]="picker" [min]="todayDate">
+                    <input matStartDate formControlName="startDate" placeholder="Start date">
+                    <input matEndDate formControlName="endDate" placeholder="End date">
+                  </mat-date-range-input>
+                <!-- <input matInput [matDatepicker]="picker" [min]="todayDate" (dateChange)="changeDate($event)" (dateInput)="addDate($event)"> -->
+                <mat-hint>DD/MM/YYYY - DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+
+        </div>
+        <button mat-stroked-button type="submit">Create Account</button>
+        <button mat-stroked-button type="button" (click)="returnToLogin()">Back to Login Page</button>
+    </form>
+</div>

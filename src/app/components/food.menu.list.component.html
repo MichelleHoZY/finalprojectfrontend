@@ -1,0 +1,139 @@
+<!-- <div class="container"> -->
+<!-- <table mat-table [dataSource]="menuList" class="mat-elevation-z8"> -->
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="mealDate">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element">{{element.mealDate}} </td>
+    </ng-container> -->
+  
+    <!-- Name Column -->
+    <!-- <ng-container matColumnDef="mealTime">
+      <th mat-header-cell *matHeaderCellDef> Time </th>
+      <td mat-cell *matCellDef="let element">{{element.mealTime}}</td>
+    </ng-container> -->
+  
+    <!-- Weight Column -->
+    <!-- <ng-container matColumnDef="vegetarian">
+      <th mat-header-cell *matHeaderCellDef> Vegetarian </th>
+      <td mat-cell *matCellDef="let element">{{element.vegetarian}} </td>
+    </ng-container> -->
+  
+    <!-- Symbol Column -->
+    <!-- <ng-container matColumnDef="main">
+      <th mat-header-cell *matHeaderCellDef> Main </th>
+      <td mat-cell *matCellDef="let element">{{element.main}} </td>
+    </ng-container> -->
+
+    <!-- <ng-container matColumnDef="drinks">
+        <th mat-header-cell *matHeaderCellDef> Drinks </th>
+        <td mat-cell *matCellDef="let element">{{element.drinks}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dessert">
+        <th mat-header-cell *matHeaderCellDef> Dessert </th>
+        <td mat-cell *matCellDef="let element">{{element.dessert}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="remarks">
+        <th mat-header-cell *matHeaderCellDef> Remarks </th>
+        <td mat-cell *matCellDef="let element">{{element.remarks}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  </table> -->
+
+
+  <!-- <table mat-table
+    [dataSource]="menuList" multiTemplateDataRows
+    class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element;"> {{element[column]}} </td>
+    </ng-container>
+    <ng-container matColumnDef="expand">
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+            <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+            </button>
+        </td>
+    </ng-container> -->
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <!-- <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element;" [attr.colspan]="columnsToDisplayWithExpand.length">
+            <div class="example-element-detail"
+                [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="example-element-description">
+                <mat-list>
+                    <mat-list-item class="item-size">Main: {{element.Main}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="item-size">Drinks: {{element.Drinks}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="item-size">Dessert: {{element.Dessert}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item class="item-size">Remarks: {{element.Remarks}}</mat-list-item>
+                  </mat-list>
+                  <p></p>
+                  <button class="button-expand" mat-stroked-button type="button" (click)="edit(element)">Edit</button>
+                  <button class="button-expand" [disabled]="true" mat-stroked-button type="button" (click)="delete(element)">Delete</button>
+                  <button class="button-expand" mat-stroked-button type="button" (click)="reviews(element)">See reviews</button>
+                </div>
+            </div>
+            
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+    class="example-element-row"
+    [class.example-expanded-row]="expandedElement === element"
+    (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']; " class="example-detail-row"></tr>
+</table>
+</div> -->
+
+<div class="container">
+
+  
+  <div >
+    <mat-form-field appearance="standard">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search for reviews" #input>
+    </mat-form-field>
+    <mat-selection-list #mealListM *ngFor="let meal of menuList; let i = index; let row of obs | async" > <!--(selectionChange)="selectionChangedM(mealListM.selectedOptions.selected)"-->           
+    <mat-list-item >
+        <div mat-line style="font-size: 17px;">
+          {{meal.Date}}: {{meal.Time}}
+          <button mat-icon-button style="float: right;" [disabled]="checkDates(meal.Date)" (click)="edit(i)" matTooltip="Edit meal">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button style="float: right;" [disabled]="checkDates(meal.Date)" (click)="delete(meal.Id)" matTooltip="Delete meal">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button style="float: right;" [disabled]="!meal.Reviews" (click)="navigateReview(meal.Id)" matTooltip="See user reviews">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
+
+          <div mat-line >
+              <div mat-line>Vegetarian: {{meal.Vegetarian}}</div>
+              <div mat-line>Main: {{meal.Main}}</div>
+              <div mat-line>Drinks: {{meal.Drinks}}</div>
+              <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+              <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+        </div>
+        <mat-divider *ngIf="i < itemNo" ></mat-divider>
+      </mat-list-item>
+    </mat-selection-list>
+    </div>
+    <!-- <mat-paginator></mat-paginator> -->
+    <mat-paginator [length]="length" [pageSize]="3" [pageSizeOptions]="[3, 6, 9, 12, 15]" aria-label="Select page"></mat-paginator>
+</div>

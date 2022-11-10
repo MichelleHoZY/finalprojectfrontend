@@ -1,0 +1,39 @@
+.container {
+    /* padding: 50px; */
+    margin: 30px;
+}
+.left-side {
+    width: 65%;
+    float: left;
+}
+.right-side {
+    width: 30%;
+    float: right;
+}
+.right-side-boxes {
+    margin: 10px;
+}
+.buttons {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+}
+.mat-icon {
+    vertical-align: middle;
+}
+
+.example-large-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    /* height: 700px;
+    width: 500px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 92%; */
+  }

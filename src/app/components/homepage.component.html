@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="left-side">
+        <mat-tab-group dynamicHeight>
+            <mat-tab label="Non-Vegetarian">
+              <div class="example-large-box mat-elevation-z4">
+                <!-- <mat-card-content> -->
+                    <!-- <mat-card-title>Menu for the Week</mat-card-title> -->
+                <mat-selection-list  #mealListW >
+                    <mat-card-title>Menu for the Week</mat-card-title>
+                    <div  *ngFor="let meal of resultsArray; let i = index; " >
+                        <div *ngIf="!meal.Vegetarian">
+                            <mat-card-subtitle style="font-size: 16px;" ><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}}</mat-card-subtitle>
+                            <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                            <mat-list-item>                 
+                                <div mat-line >
+                                    <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                    <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                    <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                    <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                </div>
+                            </mat-list-item>
+                            </div>
+                        </div>
+                    </mat-selection-list>
+                <!-- </mat-card-content> -->
+              </div>
+            </mat-tab>
+            <mat-tab label="Vegetarian">
+              <div class="example-large-box mat-elevation-z4">
+                <mat-card-content>
+                    <mat-card-title>Menu for the Week</mat-card-title>
+                <mat-selection-list  #mealListW >
+                    <div  *ngFor="let meal of resultsArray; let i = index; " >
+                        <div *ngIf="meal.Vegetarian">
+                            <mat-card-subtitle style="font-size: 16px;" ><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}}</mat-card-subtitle>
+                            <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                            <mat-list-item>                 
+                                <div mat-line >
+                                    <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                    <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                    <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                    <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                </div>
+                            </mat-list-item>
+                            </div>
+                        </div>
+                    </mat-selection-list>
+                </mat-card-content>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+    <div class="right-side">
+        <div class="right-side-boxes">
+            <mat-card>
+                <mat-card-title>Welcome back {{username}}</mat-card-title>
+            </mat-card>
+        </div>
+        <div class="right-side-boxes">
+            <mat-card>
+                <mat-card-title>Quick Navigation</mat-card-title>
+                <!-- <mat-divider></mat-divider> -->
+                <br>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="menuForm()" *ngIf="id!=0 && id!=1"><mat-icon> restaurant_menu</mat-icon> Select next week's meals</button>
+                </div>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="mealReview()" *ngIf="id!=0 && id!=1"><mat-icon>list</mat-icon> See all my meals</button>
+                </div>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="nutrition()" *ngIf="id!=0 && id!=1"><mat-icon>search</mat-icon> Search recipes</button>
+                </div>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="setMenu()" *ngIf="id!=0 && id==1"><mat-icon> edit</mat-icon> Set menu</button>
+                </div>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="allMenu()" *ngIf="id!=0 && id==1"><mat-icon>list</mat-icon> See all menu</button>
+                </div>
+                <div class="buttons">
+                    <button mat-button type="button" (click)="stats()" *ngIf="id!=0 && id==1"><mat-icon>search</mat-icon> Check meal attendance and statistics</button>
+                </div>
+                
+            </mat-card>
+        </div>
+
+    </div>
+</div>

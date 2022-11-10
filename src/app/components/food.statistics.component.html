@@ -1,0 +1,310 @@
+<div class="container">
+    <!-- <mat-stepper #allMeals #stepper> 
+      <mat-step >
+            <ng-template matStepLabel>This week</ng-template> -->
+            <mat-tab-group dynamicHeight>
+            <mat-tab label="This week">
+            <div class="example-large-box mat-elevation-z4">
+            <div class="left-side">
+                <!-- <mat-selection-list #mealListMreselected>  -->
+                    <!-- <mat-card class="example-card"> -->
+                        <mat-card-title>Non-Vegetarian</mat-card-title>
+                        <!-- <mat-card-content> -->
+                        <mat-selection-list  #mealListW >
+                            <div  *ngFor="let meal of resultsArray; let i = index; " >
+                                <div *ngIf="!meal.Vegetarian">
+                                    <mat-card-subtitle style="font-size: 16px;" ><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}} <p style="float: right;"> Pax: {{meal.Attendance}}</p></mat-card-subtitle>
+                                    <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                                    <mat-list-item>                 
+                                        <div mat-line >
+                                            <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                            <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                            <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                            <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                      </div>
+                                    </mat-list-item>
+                                    </div>
+                                </div>
+   
+                          </mat-selection-list>
+                        <!-- </mat-card-content> -->
+                      <!-- </mat-card> -->
+                <!-- </mat-selection-list> -->
+                <!-- <div class="overall-button">
+                  <button mat-stroked-button matStepperNext>See Statistics</button>
+                </div> -->
+            </div>
+            <div class="right-side">
+                <!-- <mat-selection-list #mealListMreselected>  -->
+                    <!-- <mat-card class="example-card"> -->
+                        <mat-card-title>Vegetarian</mat-card-title>
+                        <!-- <mat-card-content> -->
+                        <mat-selection-list  #mealListW >
+                            <div  *ngFor="let meal of resultsArray; let i = index; ">
+                                <div *ngIf="meal.Vegetarian">
+                                    <mat-card-subtitle style="font-size: 16px;"><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}} <p style="float: right;"> Pax: {{meal.Attendance}}</p></mat-card-subtitle>
+                                    <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                                    <mat-list-item>                 
+                                        <div mat-line >
+                                            <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                            <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                            <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                            <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                      </div>
+                                    </mat-list-item>
+                                    </div>
+                                </div>
+                          </mat-selection-list>
+                        <!-- </mat-card-content> -->
+                      <!-- </mat-card> -->
+                <!-- </mat-selection-list> -->
+            </div>
+            </div>
+            </mat-tab>
+            <mat-tab label="Next week">
+              <div class="example-large-box mat-elevation-z4">
+              <div class="left-side">
+                  <!-- <mat-selection-list #mealListMreselected>  -->
+                      <!-- <mat-card class="example-card"> -->
+                          <mat-card-title>Non-Vegetarian</mat-card-title>
+                          <!-- <mat-card-content> -->
+                          <mat-selection-list  #mealListW >
+                              <div  *ngFor="let meal of resultsArrayNextWeek; let i = index; " >
+                                  <div *ngIf="!meal.Vegetarian">
+                                      <mat-card-subtitle style="font-size: 16px;" ><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}} <p style="float: right;"> Pax: {{meal.Attendance}}</p></mat-card-subtitle>
+                                      <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                                      <mat-list-item>                 
+                                          <div mat-line >
+                                              <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                              <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                              <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                              <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                        </div>
+                                      </mat-list-item>
+                                      </div>
+                                  </div>
+     
+                            </mat-selection-list>
+                          <!-- </mat-card-content> -->
+                        <!-- </mat-card> -->
+                  <!-- </mat-selection-list> -->
+                  <!-- <div class="overall-button">
+                    <button mat-stroked-button matStepperNext>See Statistics</button>
+                  </div> -->
+              </div>
+              <div class="right-side">
+                  <!-- <mat-selection-list #mealListMreselected>  -->
+                      <!-- <mat-card class="example-card"> -->
+                          <mat-card-title>Vegetarian</mat-card-title>
+                          <!-- <mat-card-content> -->
+                          <mat-selection-list  #mealListW >
+                              <div  *ngFor="let meal of resultsArrayNextWeek; let i = index; ">
+                                  <div *ngIf="meal.Vegetarian">
+                                      <mat-card-subtitle style="font-size: 16px;"><span>{{getDayNameFromDate(meal.Date)}}</span> {{meal.Time}} <p style="float: right;"> Pax: {{meal.Attendance}}</p></mat-card-subtitle>
+                                      <mat-divider *ngIf="i<(resultsArray.length)"></mat-divider>
+                                      <mat-list-item>                 
+                                          <div mat-line >
+                                              <div mat-line style="font-size: 14px;">Main: {{meal.Main}}</div>
+                                              <div mat-line>Drinks: {{meal.Drinks}}</div>
+                                              <div mat-line *ngIf="meal.Dessert">Dessert: {{meal.Dessert}}</div>
+                                              <div mat-line *ngIf="meal.Remarks">Remarks: {{meal.Remarks}}</div>
+                                        </div>
+                                      </mat-list-item>
+                                      </div>
+                                  </div>
+                            </mat-selection-list>
+                          <!-- </mat-card-content> -->
+                        <!-- </mat-card> -->
+                  <!-- </mat-selection-list> -->
+              </div>
+              </div>
+              </mat-tab>
+        <!-- </mat-step> -->
+
+        <!-- <mat-step> -->
+          <mat-tab label="This Month's Statistics">
+            <div class="example-large-box mat-elevation-z4">
+            <!-- <ng-template matStepLabel>This Month Statistics</ng-template> -->
+                <div class="graphs">
+                    <mat-card-title>Ratings for {{thisMonthName}}</mat-card-title>
+                    <br>
+                        <ngx-charts-line-chart
+                        [view]="TM_view"
+                        [scheme]="colorScheme"
+                        [legend]="TM_legend"
+                        [showXAxisLabel]="TM_showXAxisLabel"
+                        [showYAxisLabel]="TM_showYAxisLabel"
+                        [xAxis]="TM_xAxis"
+                        [yAxis]="TM_yAxis"
+                        [xAxisLabel]="TM_xAxisLabel"
+                        [yAxisLabel]="TM_yAxisLabel"
+                        [timeline]="TM_timeline"
+                        [results]="TM_multi"
+                        (select)="TM_onSelect($event)"
+                        (activate)="TM_onActivate($event)"
+                        (deactivate)="TM_onDeactivate($event)"
+                        >
+                      </ngx-charts-line-chart>
+                      <mat-card-title>Meals Catered for {{thisMonthName}}</mat-card-title>
+                      <ngx-charts-line-chart
+                        [view]="PTM_view"
+                        [scheme]="colorScheme"
+                        [results]="PTM_multi"
+                        [gradient]="PTM_gradient"
+                        [xAxis]="PTM_showXAxis"
+                        [yAxis]="PTM_showYAxis"
+                        [legend]="PTM_showLegend"
+                        [showXAxisLabel]="PTM_showXAxisLabel"
+                        [showYAxisLabel]="PTM_showYAxisLabel"
+                        [xAxisLabel]="PTM_xAxisLabel"
+                        [yAxisLabel]="PTM_yAxisLabel"
+                        [legendTitle]="PTM_legendTitle"
+                        (select)="PTM_onSelect($event)"
+                        (activate)="PTM_onActivate($event)"
+                        (deactivate)="PTM_onDeactivate($event)">
+                        </ngx-charts-line-chart>
+                        <br>
+                        <br>
+                        <br>
+                      <mat-card-title>Lowest Rated Meals of {{thisMonthName}}</mat-card-title>
+                      <br>
+                      <table mat-table [dataSource]="TM_lowestIndex" class="mat-elevation-z8">
+
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="Date">
+                          <th mat-header-cell *matHeaderCellDef> Date </th>
+                          <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Time">
+                            <th mat-header-cell *matHeaderCellDef> Time </th>
+                            <td mat-cell *matCellDef="let element"> {{element.Time}} </td>
+                        </ng-container>
+                      
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="Meal">
+                          <th mat-header-cell *matHeaderCellDef> Meal </th>
+                          <td mat-cell *matCellDef="let element"> {{element.Meal}} </td>
+                        </ng-container>
+                      
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="Rating">
+                          <th mat-header-cell *matHeaderCellDef> Rating </th>
+                          <td mat-cell *matCellDef="let element"> {{element.Rating}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="button">
+                            <th mat-header-cell *matHeaderCellDef>  </th>
+                            <td mat-cell *matCellDef="let element"> <button mat-button type="button" (click)="seeReview(element.Id)">See reviews</button> </td>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="TM_displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: TM_displayedColumns;"></tr>
+                      </table>
+                      
+                </div>
+            </div>
+        <!-- <div >
+          <button mat-stroked-button matStepperPrevious>Back</button>
+          <button mat-stroked-button matStepperNext>Next</button>
+        </div> -->
+        <!-- </mat-step> -->
+          </mat-tab>
+        <!-- <mat-step>
+            <ng-template matStepLabel>Last Month Statistics</ng-template> -->
+            <mat-tab label="Last Month's Statistics">
+              <div class="example-large-box mat-elevation-z4">
+            <div class="graphs">
+                <mat-card-title>Ratings for {{lastMonthName}}</mat-card-title>
+                    <ngx-charts-line-chart
+                    [view]="LM_view"
+                    [scheme]="colorScheme"
+                    [legend]="LM_legend"
+                    [showXAxisLabel]="LM_showXAxisLabel"
+                    [showYAxisLabel]="LM_showYAxisLabel"
+                    [xAxis]="LM_xAxis"
+                    [yAxis]="LM_yAxis"
+                    [xAxisLabel]="LM_xAxisLabel"
+                    [yAxisLabel]="LM_yAxisLabel"
+                    [timeline]="LM_timeline"
+                    [results]="LM_multi"
+                    (select)="LM_onSelect($event)"
+                    (activate)="LM_onActivate($event)"
+                    (deactivate)="LM_onDeactivate($event)"
+                    >
+                  </ngx-charts-line-chart>
+                  <br>
+                  <br>
+                  <br>
+                  <mat-card-title>Meals Catered for {{lastMonthName}}</mat-card-title>
+                  <ngx-charts-line-chart
+                    [view]="PLM_view"
+                    [scheme]="colorScheme"
+                    [results]="PLM_multi"
+                    [gradient]="PLM_gradient"
+                    [xAxis]="PLM_showXAxis"
+                    [yAxis]="PLM_showYAxis"
+                    [legend]="PLM_showLegend"
+                    [showXAxisLabel]="PLM_showXAxisLabel"
+                    [showYAxisLabel]="PLM_showYAxisLabel"
+                    [xAxisLabel]="PLM_xAxisLabel"
+                    [yAxisLabel]="PLM_yAxisLabel"
+                    [legendTitle]="PLM_legendTitle"
+                    (select)="PLM_onSelect($event)"
+                    (activate)="PLM_onActivate($event)"
+                    (deactivate)="PLM_onDeactivate($event)">
+                    </ngx-charts-line-chart>
+                    <br>
+                    <br>
+                    <br>
+                  <mat-card-title>Lowest Rated Meals of {{lastMonthName}}</mat-card-title>
+                  <br>
+                  <table mat-table [dataSource]="LM_lowestIndex" class="mat-elevation-z8">
+    
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="Date">
+                      <th mat-header-cell *matHeaderCellDef> Date </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="Time">
+                        <th mat-header-cell *matHeaderCellDef> Time </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Time}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="Meal">
+                      <th mat-header-cell *matHeaderCellDef> Meal </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Meal}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Rating">
+                      <th mat-header-cell *matHeaderCellDef> Rating </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Rating}} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="button">
+                        <th mat-header-cell *matHeaderCellDef>  </th>
+                        <td mat-cell *matCellDef="let element"> <button mat-button type="button" (click)="seeReview(element.Id)">See reviews</button> </td>
+                      </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="TM_displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: TM_displayedColumns;"></tr>
+                  </table>
+            </div>
+            </div>
+            <!-- <div >
+                <button mat-stroked-button matStepperPrevious>Back</button>
+            </div> -->
+        <!-- </mat-step> -->
+    <!-- </mat-stepper>       -->
+            </mat-tab>
+          </mat-tab-group>
+</div>

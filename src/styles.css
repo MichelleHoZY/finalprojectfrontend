@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-form-field {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main {
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+}
+.center-it {
+  width: 100%;
+  display: inline;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}

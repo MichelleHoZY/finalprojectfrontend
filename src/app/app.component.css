@@ -1,0 +1,16 @@
+.space-around {
+    display: flex;
+    justify-content: space-around;
+  }
+  .full-height {
+    height: 100vh;
+  }
+  .item-size{
+    font-size: 1.1em ;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .font-change {
+    font-size: medium;
+  }

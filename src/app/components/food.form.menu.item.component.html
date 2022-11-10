@@ -1,0 +1,41 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="processForm()">
+        <div class="container">
+            <h2>Edit Menu Item</h2>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div>
+                    Vegetarian: {{menuItem.Vegetarian}}
+                </div>
+                <div>
+                    Date: {{menuItem.Date}}
+                </div>
+                <div>
+                    Meal: {{menuItem.Time}}
+                </div>
+            </div>
+                <mat-form-field appearance="fill">
+                <mat-label>Main</mat-label>
+                <input type="text" matInput placeholder="Main course for breakfast" formControlName="main">
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill">
+                <mat-label>Drinks</mat-label>
+                <input type="text" matInput placeholder="Drinks for breakfast" formControlName="drinks">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                <mat-label>Dessert</mat-label>
+                <input type="text" matInput placeholder="Dessert for breakfast" formControlName="dessert">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                <mat-label>Remarks</mat-label>
+                <input type="text" matInput placeholder="Remarks for breakfast" formControlName="remarks">
+                </mat-form-field>
+            
+            <button type="submit" class="button" mat-stroked-button [disabled]="!form.dirty">Save changes</button>
+            <button type="button" class="button" mat-stroked-button (click)="exit()" [disabled]="form.invalid">Discard changes and go back to menu list</button>
+        </div>
+    </form>
+</div>

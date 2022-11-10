@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <h1 mat-dialog-title>Enter Review</h1>
+  <div mat-dialog-content>
+    <div class="example-label-container" [class]="vertical ? 'example-label-vertical' : 'example-label-horizontal'">
+      <label id="example-name-label" class="example-name-label">Rating: </label>
+      <label class="example-value-label">{{value}}</label>
+    </div>
+    <mat-slider 
+        class="example-margin"
+        [invert]="invert"
+        [max]="max"
+        [min]="min"
+        [step]="step"
+        [thumbLabel]="thumbLabel"
+        [tickInterval]="getSliderTickInterval()"
+        [vertical]="vertical"
+        (ngModelChange)="ratingOnChange($event)"
+        aria-labelledby="example-name-label"
+        formControlName="rating">
+    </mat-slider>
+    <mat-hint>Max rating: 10</mat-hint>
+    <mat-form-field appearance="fill">
+      <mat-label>Review:</mat-label>
+      <input matInput formControlName="caption">
+    </mat-form-field>
+  </div>
+  <input type="file" formControlName="pic" (change)="onImageUpload($event)" #toUpload>
+  <img [src]="pic_" style="max-width: 350px;">
+  <br>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Back</button>
+    <button mat-button mat-dialog-close *ngIf="postId_.length > 1" (click)="processForm()" [disabled]="!form.dirty">Update</button>
+    <button mat-button mat-dialog-close *ngIf="postId_.length < 1" (click)="processForm()" [disabled]="!form.dirty">Submit</button>
+  </div>
+</form>

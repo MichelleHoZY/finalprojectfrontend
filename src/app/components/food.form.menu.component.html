@@ -1,0 +1,130 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="processForm()">
+        <div class="container">
+            <h2>Menu form</h2>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="vegetarian-field">
+                    <mat-label>Vegetarian food </mat-label>
+                    <mat-checkbox formControlName="vegetarian" value="yes" ></mat-checkbox>
+                </div>
+     
+                <div class="date-field">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="date"> <!--[min]="todayDate"-->
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                </div>
+            </div>
+              <div class="example-action-buttons">
+                <button type="button" mat-button (click)="accordion.openAll()">Expand All</button>
+                <button type="button" mat-button (click)="accordion.closeAll()">Collapse All</button>
+              </div>
+              <mat-accordion class="example-headers-align" multi>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Breakfast
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Fill in the breakfast menu
+                      <!-- <mat-icon>account_circle</mat-icon> -->
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+              
+                  <mat-form-field appearance="fill">
+                    <mat-label>Main</mat-label>
+                    <input type="text" matInput placeholder="Main course for breakfast" formControlName="breakfast_main">
+                  </mat-form-field>
+              
+                  <mat-form-field appearance="fill">
+                    <mat-label>Drinks</mat-label>
+                    <input type="text" matInput placeholder="Drinks for breakfast" formControlName="breakfast_drinks">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Dessert</mat-label>
+                    <input type="text" matInput placeholder="Dessert for breakfast" formControlName="breakfast_dessert">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Remarks</mat-label>
+                    <input type="text" matInput placeholder="Remarks for breakfast" formControlName="breakfast_remarks">
+                  </mat-form-field>
+              
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Lunch
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Fill in the lunch menu
+                        <!-- <mat-icon>account_circle</mat-icon> -->
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                
+                    <mat-form-field appearance="fill">
+                      <mat-label>Main</mat-label>
+                      <input type="text" matInput placeholder="Main course for lunch" formControlName="lunch_main">
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="fill">
+                      <mat-label>Drinks</mat-label>
+                      <input type="text" matInput placeholder="Drinks for lunch" formControlName="lunch_drinks">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="fill">
+                      <mat-label>Dessert</mat-label>
+                      <input type="text" matInput placeholder="Dessert for lunch" formControlName="lunch_dessert">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Remarks</mat-label>
+                        <input type="text" matInput placeholder="Remarks for lunch" formControlName="lunch_remarks">
+                    </mat-form-field>
+                
+                  </mat-expansion-panel>
+              
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Tea
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Fill in the tea break menu
+                        <!-- <mat-icon>account_circle</mat-icon> -->
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                
+                    <mat-form-field appearance="fill">
+                      <mat-label>Main</mat-label>
+                      <input type="text" matInput placeholder="Main course for tea break" formControlName="tea_main">
+                    </mat-form-field>
+                
+                    <mat-form-field appearance="fill">
+                      <mat-label>Drinks</mat-label>
+                      <input type="text" matInput placeholder="Drinks for tea break" formControlName="tea_drinks">
+                    </mat-form-field>
+  
+                    <mat-form-field appearance="fill">
+                      <mat-label>Dessert</mat-label>
+                      <input type="text" matInput placeholder="Dessert for tea break" formControlName="tea_dessert">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Remarks</mat-label>
+                        <input type="text" matInput placeholder="Remarks for tea break" formControlName="tea_remarks">
+                    </mat-form-field>
+                
+                  </mat-expansion-panel>
+              </mat-accordion>
+              <button type="submit" class="button" mat-stroked-button [disabled]="form.invalid">Save and go to next day</button>
+              <button type="button" class="button" mat-stroked-button (click)="exit()" [disabled]="form.invalid">Save and exit</button>
+        </div>
+    </form>
+</div>
