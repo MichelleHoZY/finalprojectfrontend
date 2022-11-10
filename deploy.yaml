@@ -40,4 +40,4 @@ jobs:
         env:
           HEROKU_APP_NAME: issfoodapp
       - name: Push to Heroku
-        run: git push heroku master
+        run: git push heroku release
