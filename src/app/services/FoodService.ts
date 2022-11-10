@@ -9,34 +9,34 @@ import { AttendanceObject, CreateAccount, MealAttendanceArray, MealReview, Menu,
 
 // everyone
 
-const createNewUser = 'https://issfoodappbackend.herokuapp.com//authorise/createUser'
-const checkIdAvailable = 'https://issfoodappbackend.herokuapp.com//authorise/idAvailability'
-const login = 'https://issfoodappbackend.herokuapp.com//authorise/login'
+const createNewUser = 'https://issfoodappbackend.herokuapp.com/authorise/createUser'
+const checkIdAvailable = 'https://issfoodappbackend.herokuapp.com/authorise/idAvailability'
+const login = 'https://issfoodappbackend.herokuapp.com/authorise/login'
 
 // users and admin
 
-const getUserMealsUrl = 'https://issfoodappbackend.herokuapp.com//api/userMeals'
-const saveReviewUrl = 'https://issfoodappbackend.herokuapp.com//api/saveReview'
-const getUserMealReviews = 'https://issfoodappbackend.herokuapp.com//api/userMealReview'
-const updateUserReviewUrl = 'https://issfoodappbackend.herokuapp.com//api/updateReview'
-const searchNutritionUrl = 'https://issfoodappbackend.herokuapp.com//api/nutrition'
-const getMenuByDates = 'https://issfoodappbackend.herokuapp.com//api/menuDates'
-const getMenuByDatesStudent = 'https://issfoodappbackend.herokuapp.com//api/menuDatesStudent'
-const saveMealAttendance = 'https://issfoodappbackend.herokuapp.com//api/saveAttendance'
-const getUserReviewsUrl = 'https://issfoodappbackend.herokuapp.com//api/userReviews'
-const getMealAttendance = 'https://issfoodappbackend.herokuapp.com//api/thisWeek'
-const getPreselected = 'https://issfoodappbackend.herokuapp.com//api/preselected'
-const updateAttendanceUrl = 'https://issfoodappbackend.herokuapp.com//api/updateAttendance'
+const getUserMealsUrl = 'https://issfoodappbackend.herokuapp.com/api/userMeals'
+const saveReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/saveReview'
+const getUserMealReviews = 'https://issfoodappbackend.herokuapp.com/api/userMealReview'
+const updateUserReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/updateReview'
+const searchNutritionUrl = 'https://issfoodappbackend.herokuapp.com/api/nutrition'
+const getMenuByDates = 'https://issfoodappbackend.herokuapp.com/api/menuDates'
+const getMenuByDatesStudent = 'https://issfoodappbackend.herokuapp.com/api/menuDatesStudent'
+const saveMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/saveAttendance'
+const getUserReviewsUrl = 'https://issfoodappbackend.herokuapp.com/api/userReviews'
+const getMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/thisWeek'
+const getPreselected = 'https://issfoodappbackend.herokuapp.com/api/preselected'
+const updateAttendanceUrl = 'https://issfoodappbackend.herokuapp.com/api/updateAttendance'
 
 // admin only
 
-const changeMenuUrl = 'https://issfoodappbackend.herokuapp.com//admin/update'
-const deleteMenuUrl = 'https://issfoodappbackend.herokuapp.com//admin/delete'
-const saveMenuUrl = 'https://issfoodappbackend.herokuapp.com//admin/setMenu'
-const getMenuListUrl = 'https://issfoodappbackend.herokuapp.com//admin/getAllMenus'
+const changeMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/update'
+const deleteMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/delete'
+const saveMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/setMenu'
+const getMenuListUrl = 'https://issfoodappbackend.herokuapp.com/admin/getAllMenus'
 const getReviewsUrl = '/https://issfoodappbackend.herokuapp.com/admin/reviews'
-const getRatingsStats = 'https://issfoodappbackend.herokuapp.com//admin/stats'
-const getPaxStats = 'https://issfoodappbackend.herokuapp.com//admin/pax'
+const getRatingsStats = 'https://issfoodappbackend.herokuapp.com/admin/stats'
+const getPaxStats = 'https://issfoodappbackend.herokuapp.com/admin/pax'
 
 @Injectable()
 export class FoodService {
