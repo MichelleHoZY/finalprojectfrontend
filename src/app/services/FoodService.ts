@@ -73,15 +73,6 @@ export class FoodService {
 
     constructor(private http: HttpClient) {}
 
-    // printSelectedMenu() {
-    //     this.selectedMenuItem.subscribe(
-    //         item => {
-    //             this.menuItem = item
-    //         }
-    //     )
-    //     console.log(this.selectedMenuItem)
-    // }
-
     // staff side
 
     // food forms services
