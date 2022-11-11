@@ -14,7 +14,6 @@ COPY main.js .
 COPY metrics.js .
 COPY package.json .
 COPY package-lock.json .
-COPY views views
 COPY src src 
 
 #setup the application - install npm
