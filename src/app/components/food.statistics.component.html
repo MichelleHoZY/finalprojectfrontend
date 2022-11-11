@@ -128,7 +128,7 @@
                 <div class="graphs">
                     <mat-card-title>Ratings for {{thisMonthName}}</mat-card-title>
                     <br>
-                        <ngx-charts-line-chart
+                        <ngx-charts-line-chart *ngIf="TM_multi"
                         [view]="TM_view"
                         [scheme]="colorScheme"
                         [legend]="TM_legend"
@@ -146,7 +146,7 @@
                         >
                       </ngx-charts-line-chart>
                       <mat-card-title>Meals Catered for {{thisMonthName}}</mat-card-title>
-                      <ngx-charts-line-chart
+                      <ngx-charts-line-chart *ngIf="PTM_multi"
                         [view]="PTM_view"
                         [scheme]="colorScheme"
                         [results]="PTM_multi"
@@ -219,7 +219,7 @@
               <div class="example-large-box mat-elevation-z4">
             <div class="graphs">
                 <mat-card-title>Ratings for {{lastMonthName}}</mat-card-title>
-                    <ngx-charts-line-chart
+                    <ngx-charts-line-chart *ngIf="LM_multi"
                     [view]="LM_view"
                     [scheme]="colorScheme"
                     [legend]="LM_legend"
@@ -240,7 +240,7 @@
                   <br>
                   <br>
                   <mat-card-title>Meals Catered for {{lastMonthName}}</mat-card-title>
-                  <ngx-charts-line-chart
+                  <ngx-charts-line-chart *ngIf="PLM_multi"
                     [view]="PLM_view"
                     [scheme]="colorScheme"
                     [results]="PLM_multi"
