@@ -128,7 +128,7 @@
                 <div class="graphs">
                     <mat-card-title>Ratings for {{thisMonthName}}</mat-card-title>
                     <br>
-                        <ngx-charts-line-chart *ngIf="TM_multi | async as answers1"
+                        <ngx-charts-line-chart *ngIf="TM_multi.length"
                         [view]="TM_view"
                         [scheme]="colorScheme"
                         [legend]="TM_legend"
@@ -139,17 +139,17 @@
                         [xAxisLabel]="TM_xAxisLabel"
                         [yAxisLabel]="TM_yAxisLabel"
                         [timeline]="TM_timeline"
-                        [results]="answers1"
+                        [results]="TM_multi"
                         (select)="TM_onSelect($event)"
                         (activate)="TM_onActivate($event)"
                         (deactivate)="TM_onDeactivate($event)"
                         >
                       </ngx-charts-line-chart>
                       <mat-card-title>Meals Catered for {{thisMonthName}}</mat-card-title>
-                      <ngx-charts-line-chart *ngIf="PTM_multi | async as answers2"
+                      <ngx-charts-line-chart *ngIf="PTM_multi.length"
                         [view]="PTM_view"
                         [scheme]="colorScheme"
-                        [results]="answers2"
+                        [results]="PTM_multi"
                         [gradient]="PTM_gradient"
                         [xAxis]="PTM_showXAxis"
                         [yAxis]="PTM_showYAxis"
@@ -219,7 +219,7 @@
               <div class="example-large-box mat-elevation-z4">
             <div class="graphs">
                 <mat-card-title>Ratings for {{lastMonthName}}</mat-card-title>
-                    <ngx-charts-line-chart *ngIf="LM_multi | async as answers3"
+                    <ngx-charts-line-chart *ngIf="LM_multi.length"
                     [view]="LM_view"
                     [scheme]="colorScheme"
                     [legend]="LM_legend"
@@ -230,7 +230,7 @@
                     [xAxisLabel]="LM_xAxisLabel"
                     [yAxisLabel]="LM_yAxisLabel"
                     [timeline]="LM_timeline"
-                    [results]="answers3"
+                    [results]="LM_multi"
                     (select)="LM_onSelect($event)"
                     (activate)="LM_onActivate($event)"
                     (deactivate)="LM_onDeactivate($event)"
@@ -240,10 +240,10 @@
                   <br>
                   <br>
                   <mat-card-title>Meals Catered for {{lastMonthName}}</mat-card-title>
-                  <ngx-charts-line-chart *ngIf="PLM_multi | async as answers4"
+                  <ngx-charts-line-chart *ngIf="PLM_multi.length"
                     [view]="PLM_view"
                     [scheme]="colorScheme"
-                    [results]="answers4"
+                    [results]="PLM_multi"
                     [gradient]="PLM_gradient"
                     [xAxis]="PLM_showXAxis"
                     [yAxis]="PLM_showYAxis"
