@@ -15,7 +15,7 @@ COPY metrics.js .
 COPY package.json .
 COPY package-lock.json .
 COPY views views
-COPY public public 
+COPY src src 
 
 #setup the application - install npm
 RUN npm ci
