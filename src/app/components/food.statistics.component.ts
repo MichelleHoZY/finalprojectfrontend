@@ -42,6 +42,8 @@ export class FoodStatisticsComponent implements OnInit {
   LM_yAxisLabel: string = 'Average Rating';
   LM_timeline: boolean = true;
 
+  obs1!: Observable<any>
+
   month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   thisMonthName: string = ''
   lastMonthName: string = ''
