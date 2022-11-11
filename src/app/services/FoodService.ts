@@ -6,7 +6,6 @@ import { DateAdapter } from "@angular/material/core";
 import { firstValueFrom, from, map, Observable, Subject } from "rxjs";
 import { AttendanceObject, CreateAccount, MealAttendanceArray, MealReview, Menu, MenuChange, MenuDate, MenuItemsObject, MenuResponse, Preselected, TokenResp, UpdateAttendance, UserDetails, UserMealReview, UserMeals, UserReviews } from "../models";
 
-
 // everyone
 
 const createNewUser = 'https://issfoodappbackend.herokuapp.com/authorise/createUser'

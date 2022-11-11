@@ -42,6 +42,7 @@ ngOnInit(): void {
   // console.log(this.nextFriday())
   this.token = localStorage.getItem("token")
   this.foodSvc.token = this.token
+  console.log(">>> Token: " + this.token)
     this.foodSvc.getMenuList()
     .then(result => {
       console.log(result)
@@ -104,8 +105,7 @@ ngOnInit(): void {
       .then(result => {
         console.log(">>> Result: " + JSON.stringify(result))
         this.menuList = []
-        this.ngOnInit()
-        this.router.navigate(['menuList'])
+        window.location.reload()
       })
       .catch(error => {
         console.log(">>> Error: " + error)
@@ -131,7 +131,7 @@ ngOnInit(): void {
     let convertedDate = new Date(+d[0], +d[1] - 1, +d[2]); 
 
     convertedDate.setDate((convertedDate.getDate() + (1 + 7 - convertedDate.getDay()) % 7) - 15);
-    console.log(convertedDate);
+    // console.log(convertedDate);
 
     return convertedDate
   }
