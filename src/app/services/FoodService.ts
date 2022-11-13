@@ -6,36 +6,67 @@ import { DateAdapter } from "@angular/material/core";
 import { firstValueFrom, from, map, Observable, Subject } from "rxjs";
 import { AttendanceObject, CreateAccount, MealAttendanceArray, MealReview, Menu, MenuChange, MenuDate, MenuItemsObject, MenuResponse, Preselected, TokenResp, UpdateAttendance, UserDetails, UserMealReview, UserMeals, UserReviews } from "../models";
 
+// // everyone
+
+// const createNewUser = 'https://issfoodappbackend.herokuapp.com/authorise/createUser'
+// const checkIdAvailable = 'https://issfoodappbackend.herokuapp.com/authorise/idAvailability'
+// const login = 'https://issfoodappbackend.herokuapp.com/authorise/login'
+
+// // users and admin
+
+// const getUserMealsUrl = 'https://issfoodappbackend.herokuapp.com/api/userMeals'
+// const saveReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/saveReview'
+// const getUserMealReviews = 'https://issfoodappbackend.herokuapp.com/api/userMealReview'
+// const updateUserReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/updateReview'
+// const searchNutritionUrl = 'https://issfoodappbackend.herokuapp.com/api/nutrition'
+// const getMenuByDates = 'https://issfoodappbackend.herokuapp.com/api/menuDates'
+// const getMenuByDatesStudent = 'https://issfoodappbackend.herokuapp.com/api/menuDatesStudent'
+// const saveMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/saveAttendance'
+// const getUserReviewsUrl = 'https://issfoodappbackend.herokuapp.com/api/userReviews'
+// const getMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/thisWeek'
+// const getPreselected = 'https://issfoodappbackend.herokuapp.com/api/preselected'
+// const updateAttendanceUrl = 'https://issfoodappbackend.herokuapp.com/api/updateAttendance'
+
+// // admin only
+
+// const changeMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/update'
+// const deleteMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/delete'
+// const saveMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/setMenu'
+// const getMenuListUrl = 'https://issfoodappbackend.herokuapp.com/admin/getAllMenus'
+// const getReviewsUrl = 'https://issfoodappbackend.herokuapp.com/admin/reviews'
+// const getRatingsStats = 'https://issfoodappbackend.herokuapp.com/admin/stats'
+// const getPaxStats = 'https://issfoodappbackend.herokuapp.com/admin/pax'
+
 // everyone
 
-const createNewUser = 'https://issfoodappbackend.herokuapp.com/authorise/createUser'
-const checkIdAvailable = 'https://issfoodappbackend.herokuapp.com/authorise/idAvailability'
-const login = 'https://issfoodappbackend.herokuapp.com/authorise/login'
+const createNewUser = 'https://finalprojectbackend-gcojk.ondigitalocean.app/authorise/createUser'
+const checkIdAvailable = 'https://finalprojectbackend-gcojk.ondigitalocean.app/authorise/idAvailability'
+const login = 'https://finalprojectbackend-gcojk.ondigitalocean.app/authorise/login'
 
 // users and admin
 
-const getUserMealsUrl = 'https://issfoodappbackend.herokuapp.com/api/userMeals'
-const saveReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/saveReview'
-const getUserMealReviews = 'https://issfoodappbackend.herokuapp.com/api/userMealReview'
-const updateUserReviewUrl = 'https://issfoodappbackend.herokuapp.com/api/updateReview'
-const searchNutritionUrl = 'https://issfoodappbackend.herokuapp.com/api/nutrition'
-const getMenuByDates = 'https://issfoodappbackend.herokuapp.com/api/menuDates'
-const getMenuByDatesStudent = 'https://issfoodappbackend.herokuapp.com/api/menuDatesStudent'
-const saveMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/saveAttendance'
-const getUserReviewsUrl = 'https://issfoodappbackend.herokuapp.com/api/userReviews'
-const getMealAttendance = 'https://issfoodappbackend.herokuapp.com/api/thisWeek'
-const getPreselected = 'https://issfoodappbackend.herokuapp.com/api/preselected'
-const updateAttendanceUrl = 'https://issfoodappbackend.herokuapp.com/api/updateAttendance'
+const getUserMealsUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/userMeals'
+const saveReviewUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/saveReview'
+const getUserMealReviews = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/userMealReview'
+const updateUserReviewUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/updateReview'
+const searchNutritionUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/nutrition'
+const getMenuByDates = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/menuDates'
+const getMenuByDatesStudent = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/menuDatesStudent'
+const saveMealAttendance = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/saveAttendance'
+const getUserReviewsUrl = 'hhttps://finalprojectbackend-gcojk.ondigitalocean.app/api/userReviews'
+const getMealAttendance = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/thisWeek'
+const getPreselected = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/preselected'
+const updateAttendanceUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/api/updateAttendance'
 
 // admin only
 
-const changeMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/update'
-const deleteMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/delete'
-const saveMenuUrl = 'https://issfoodappbackend.herokuapp.com/admin/setMenu'
-const getMenuListUrl = 'https://issfoodappbackend.herokuapp.com/admin/getAllMenus'
-const getReviewsUrl = 'https://issfoodappbackend.herokuapp.com/admin/reviews'
-const getRatingsStats = 'https://issfoodappbackend.herokuapp.com/admin/stats'
-const getPaxStats = 'https://issfoodappbackend.herokuapp.com/admin/pax'
+const changeMenuUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/update'
+const deleteMenuUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/delete'
+const saveMenuUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/setMenu'
+const getMenuListUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/getAllMenus'
+const getReviewsUrl = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/reviews'
+const getRatingsStats = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/stats'
+const getPaxStats = 'https://finalprojectbackend-gcojk.ondigitalocean.app/admin/pax'
 
 @Injectable()
 export class FoodService {

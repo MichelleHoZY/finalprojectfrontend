@@ -1,7 +1,7 @@
 module.exports = [
     {
       context: [ '/**' ],
-      target: 'https://issfoodappbackend.herokuapp.com/',
+      target: 'https://finalprojectbackend-gcojk.ondigitalocean.app/',
       secure: false
     }
   ]
