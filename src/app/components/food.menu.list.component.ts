@@ -126,19 +126,23 @@ ngOnInit(): void {
     }
   }
 
-  nextFriday(mealDate: string) {
-    let d = mealDate.split('-');
-    let convertedDate = new Date(+d[0], +d[1] - 1, +d[2]); 
-
-    convertedDate.setDate((convertedDate.getDate() + (1 + 7 - convertedDate.getDay()) % 7) - 15);
-    // console.log(convertedDate);
-
-    return convertedDate
+  nextFriday() {
+    const today = new Date();
+    const first = today.getDate() - today.getDay() + 1;
+    const fifth = first + 4;
+  
+    const friday = new Date(today.setDate(fifth));
+  
+    return friday;
   }
 
   checkDates(mealDate: string) {
-    let currentDate = new Date
-    if (currentDate < this.nextFriday(mealDate)) {
+    let currentDate = new Date()
+    let menuDate = new Date(mealDate)
+    console.log(">>> Check date current date: " + currentDate)
+    console.log(">>> Check date meal date: " + mealDate)
+    console.log(">>> Check date next friday: " + this.nextFriday())
+    if (currentDate < this.nextFriday() && menuDate > this.nextFriday()) {
       return false
     }
     return true
