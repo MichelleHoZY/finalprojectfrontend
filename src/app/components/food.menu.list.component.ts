@@ -129,9 +129,9 @@ ngOnInit(): void {
   nextFriday() {
     const today = new Date();
     const first = today.getDate() - today.getDay() + 1;
-    const fifth = first + 4;
+    const fifth = first + 4 + 7;
   
-    const friday = new Date(today.setDate(fifth));
+    const friday = new Date(today.setDate(fifth) );
   
     return friday;
   }
