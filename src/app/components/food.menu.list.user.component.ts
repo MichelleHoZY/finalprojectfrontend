@@ -406,7 +406,7 @@ export class FoodMenuListUserComponent implements OnInit {
   createMenuDates() {
     let currentDate = this.nextMonday()
     console.log(">>> Create menu dates CURRENT DATE: " + currentDate)
-    let fridayDate = new Date(currentDate.setDate(currentDate.getDate() + 4))
+    let fridayDate = new Date(this.nextMonday().setDate(this.nextMonday().getDate() + 4))
     console.log(">>> Create menu dates FRIDAY DATE: " + fridayDate)
     // let mondayDateStr = this.datePipe.transform(mondayDate, "yyyy-MM-dd")
     // console.log(mondayDateStr)
