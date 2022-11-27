@@ -64,6 +64,10 @@ export class FoodMenuListUserComponent implements OnInit {
     }
     this.foodSvc.token = this.token
     let currentDate = new Date()
+    console.log("HERE")
+    console.log(">>> Current date: " + currentDate)
+    console.log(">>> End date: " + this.endDate)
+    console.log(">>> Next monday: " + this.nextMonday())
     if (currentDate < this.endDate) {
       if (currentDate < this.nextMonday()) {
         this.menuDates.dates = this.createMenuDates()
@@ -401,9 +405,9 @@ export class FoodMenuListUserComponent implements OnInit {
 
   createMenuDates() {
     let currentDate = this.nextMonday()
-    // console.log(mondayDate)
-    let fridayDate = new Date
-    fridayDate.setDate(currentDate.getDate() + 4)
+    console.log(">>> Create menu dates CURRENT DATE: " + currentDate)
+    let fridayDate = new Date(currentDate.setDate(currentDate.getDate() + 4))
+    console.log(">>> Create menu dates FRIDAY DATE: " + fridayDate)
     // let mondayDateStr = this.datePipe.transform(mondayDate, "yyyy-MM-dd")
     // console.log(mondayDateStr)
     // let fridayDateStr = this.datePipe.transform(fridayDate, "yyyy-MM-dd")
@@ -414,6 +418,8 @@ export class FoodMenuListUserComponent implements OnInit {
         dateArray.push(this.datePipe.transform(currentDate, "yyyy-MM-dd") || '')
         currentDate.setDate(currentDate.getDate() + 1)
     }
+
+    console.log(">>> Dates!: " + dateArray)
 
     return dateArray
   }
